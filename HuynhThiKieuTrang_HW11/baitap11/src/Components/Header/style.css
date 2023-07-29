@@ -1,0 +1,37 @@
+.nav-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 52px;
+  
+}
+
+.logo_zing {
+    width: 150px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.nav li {
+    list-style: none;
+    padding: 0 15px;
+}
+
+.nav li a {
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.avt_zing {
+    width: 40px;
+    border-radius: 50%;
+}

@@ -1,0 +1,60 @@
+.nav-post {
+  border-bottom: 1px solid #b3b3b3;
+}
+
+.weather {
+  max-width: 1200px;
+}
+
+.col-4 img {
+  margin: 16 px;
+}
+
+.col-4 span {
+  width: 60%;
+  font-weight: bold;
+}
+
+.item {
+  display: flex;
+  margin: 0px 0px 12px;
+  padding: 0px 0px 12px;
+  border-bottom: 1px solid lightgrey;
+}
+
+button {
+
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f8f9fa;
+  color: #495057;
+}
+
+li {
+  font-weight: bold;
+}
+.delete{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.delete button{
+  margin-left: 24px;
+  padding: 2px;
+  margin-bottom: 8px;
+}
