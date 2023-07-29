@@ -1,0 +1,18 @@
+ [
+  { "code": 12, "name": "Quảng Ninh" },
+  { "code": 50, "name": "Quảng Trị" },
+  { "code": 36, "name": "Sóc Trăng" },
+  { "code": 52, "name": "Sơn La" },
+  { "code": 53, "name": "Tây Ninh" },
+  { "code": 54, "name": "Thái Bình" },
+  { "code": 55, "name": "Thái Nguyên" },
+  { "code": 56, "name": "Thanh Hóa" },
+  { "code": 57, "name": "Thừa Thiên Huế" },
+  { "code": 58, "name": "Tiền Giang" },
+  { "code": 16, "name": "Trà Vinh" },
+  { "code": 60, "name": "Tuyên Quang" },
+  { "code": 61, "name": "Vĩnh Long" },
+  { "code": 62, "name": "Vĩnh Phúc" },
+  { "code": 63, "name": "Yên Bái" }
+ ]
+
