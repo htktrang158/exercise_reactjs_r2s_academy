@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 6</title>
+</head>
+
+<body>
+    <h1>Thông tin cá nhân</h1>
+    <ul id="infoList"></ul>
+
+    <h2>Giới tính đảo ngược</h2>
+    <ul id="reversedGenderList"></ul>
+    <script>
+        const arr = [
+            { name: "A", age: 25, gender: true },
+            { name: "L", age: 30, gender: false },
+            { name: "T", age: 35, gender: true },
+            { name: "C", age: 28, gender: false }
+        ];
+        for (var i = 0; i < arr.length; i++) {
+            document.querySelector("#infoList").innerHTML += `<li>Name: ${arr[i].name}, Age: ${arr[i].age}, Gender: ${arr[i].gender}</li>`;
+        }
+        const arr1 = [];
+        for (var i = 0; i < arr.length; i++) {
+            arr1.push(arr[i]); 
+            if (arr[i].gender === true) {
+                arr1[i].gender = false;
+            } else {
+                arr1[i].gender = true;
+            }
+        }
+        for (var i = 0; i < arr1.length; i++) {
+            document.querySelector("#reversedGenderList").innerHTML += `<li>Name: ${arr[i].name}, Age: ${arr[i].age}, Gender: ${arr[i].gender}</li>`;
+        }
+    </script>
+</body>
+
+</html>

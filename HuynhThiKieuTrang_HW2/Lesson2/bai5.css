@@ -1,0 +1,31 @@
+.container {
+    background-color: #f2f3f5;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px 60px 50px 50px;
+}
+.content_khoi {
+    background-color: #ffff;
+    width: 360px;
+    height: 450px;
+}
+.content_khoi img {
+    padding: 0px 5px 5px 0px;
+}
+.header {
+    justify-content: center;
+    text-align: center;
+    padding-top: 10px;
+}
+.header p {
+    color: gray;
+}
+.content_khoi p {
+    color: grey;
+}
+.content_khoi_text {
+    padding: 10px;
+}

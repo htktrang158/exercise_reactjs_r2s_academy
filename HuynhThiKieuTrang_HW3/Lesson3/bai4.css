@@ -1,0 +1,49 @@
+/* body {
+    background-color: #f6f6f6;
+    padding: 0;
+    margin: 0;
+} */
+.background_blue {
+    background-color: #01bacf;
+    width: 1110px;
+    height: 100px;
+    padding: 50px 0 0 100px;
+    position: relative;
+
+    /* lấy chính nó  làm gốc */
+}
+.container {
+    height: 400px;
+    width: 1210px;
+    background-color: aqua;
+    justify-content: center;
+    margin: 10px 10px 10px 20px;
+}
+h2 {
+    margin: 0;
+    color: #e8fafa;
+}
+h3 {
+    color: #595959;
+}
+.content {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    position: absolute;
+    left: 15%;
+    top: 85%;
+}
+.card {
+    background-color: #ffff;
+    width: 200px;
+    height: fit-content;
+    padding: 30px 20px 30px 20px;
+}
+.card p {
+    color: rgb(170, 170, 170);
+}
+.card span {
+    color: #cee15c;
+    font-size: 32px;
+}

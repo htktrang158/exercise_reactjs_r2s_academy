@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+
+</head>
+
+<body>
+    <h2></h2>
+    <script>
+        var birth = new Date("2002-08-15");
+        let second = 1000;
+        let minute = second * 60;
+        let hour = minute * 60;
+        let day = hour * 24; // 1000 * 60 * 60 * 24
+        function showTime() {
+            var now = new Date();
+            const time = Math.abs(now - birth); //mili giây
+            const days = parseInt(time / day); // quy đổi mili giây ra ngày 
+            const hours = parseInt((time % day) / hour); // quy đổi mili giây dư ra giờ
+            const minutes = parseInt((time % hour) / minute); // quy đổi mili giây dư ra phút
+            const seconds = parseInt((time % minute) / second);
+            document.querySelector("h2").innerHTML = `${days} ngày ${hours} tiếng ${minutes} phút ${seconds} giây`;
+        }
+        setInterval(showTime, 1000);
+    </script>
+</body>
+
+</html>

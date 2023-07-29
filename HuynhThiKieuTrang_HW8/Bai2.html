@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bài 2</title>
+        <style>
+            button {
+                cursor: pointer;
+                padding: 12px;
+                margin: 12px;
+                border: none;
+                border-radius: 6px;
+            }
+
+            #table {
+                width: 100%;
+            }
+
+            #table,
+            th,
+            tr,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            #tableten {
+                width: 100%;
+            }
+
+            #tableten,
+            th,
+            tr,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Danh sách mảng 1:</h2>
+        <span class="list1"></span>
+        <h2>Danh sách mảng 2:</h2>
+        <span class="list2"></span>
+        <br />
+        <button type="choice" id="cam" style="background-color: orange" onclick="changeTeam('Orange')">Cam</button>
+        <button type="choice" id="vang" style="background-color: yellow" onclick="changeTeam('Yellow')">Vàng</button>
+        <button type="choice" id="xanh_la" style="background-color: green" onclick="changeTeam('Green')">Xanh lá</button>
+        <button type="choice" id="xanh_duong" style="background-color: blue" onclick="changeTeam('Blue')">Xanh dương</button>
+        <h2>Danh sách thằng lớn hơn 18 tuổi:</h2>
+        <span class="list_18"></span>
+        <br />
+        <h2>Danh sách tất cả các team:</h2>
+        <table id="table" class="">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Team</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <br />
+        <button id="prevButton" onclick="previousPage()">Previous</button>
+        <button id="nextButton" onclick="nextPage()">Next</button>
+        <button onclick="renderTable()">Hien thi</button>
+        <br />
+        <button type="button" onclick="addPerson()">Creat</button>
+        <script>
+            const array_1 = [
+                { id: 1, name: "A", age: 10, team: "Yellow" },
+                { id: 2, name: "B", age: 42, team: "Yellow" },
+                { id: 3, name: "C", age: 33, team: "Green" },
+                { id: 4, name: "D", age: 16, team: "Green" },
+                { id: 5, name: "E", age: 45, team: "Orange" },
+                { id: 6, name: "F", age: 27, team: "Orange" },
+                { id: 7, name: "G", age: 12, team: "Blue" },
+                { id: 8, name: "H", age: 29, team: "Blue" },
+            ];
+            const array_2 = [
+                { id: 9, name: "Q", age: 15, team: "Yellow" },
+                { id: 10, name: "W", age: 41, team: "Yellow" },
+                { id: 11, name: "R", age: 35, team: "Green" },
+                { id: 12, name: "T", age: 14, team: "Green" },
+                { id: 13, name: "Y", age: 42, team: "Orange" },
+                { id: 14, name: "U", age: 21, team: "Orange" },
+                { id: 15, name: "I", age: 18, team: "Blue" },
+                { id: 16, name: "O", age: 19, team: "Blue" },
+            ];
+            function showArr(arr, selector) {
+                document.querySelector(selector).innerHTML = "";
+                let text = ``;
+                arr.forEach((element) => {
+                    text += `${element.id} - ${element.name} - ${element.age} - ${element.team}<br>`;
+                });
+                document.querySelector(selector).innerHTML += text;
+            }
+            showArr(array_1, ".list1");
+            showArr(array_2, ".list2");
+            // Câu 1
+            function chonTeam(arr1, arr2, team) {
+                const arrTeamSelected = arr1.filter((person) => person.team === team);
+                arr2.push(...arrTeamSelected);
+                arr1.splice(0, arr1.length, ...arr1.filter((person) => person.team !== team));
+            }
+            function changeTeam(color) {
+                chonTeam(array_1, array_2, color);
+                showArr(array_1, ".list1");
+                showArr(array_2, ".list2");
+            }
+            // Câu 2
+            function showAge() {
+                text = "";
+                const arrAgeThan18 = array_1.concat(array_2).filter((person) => person.age > 18);
+                showArr(arrAgeThan18, ".list_18");
+            }
+            showAge();
+            // Câu 3 + 4
+            //Number item in page
+            const pageSize = 10;
+            //Current page
+            let curPage = 1;
+            function previousPage() {
+                if (curPage > 1) curPage--;
+                renderTable();
+            }
+            function nextPage() {
+                if (curPage * pageSize < array_1.concat(array_2).length) {
+                    curPage++;
+                }
+                renderTable();
+            }
+            function renderTable() {
+                let result = "";
+                let table = document.querySelector("#table tbody");
+                array_1
+                    .concat(array_2)
+                    .filter((row, index) => {
+                        let start = (curPage - 1) * pageSize; // bắt đầu từ 0 nếu page 1
+                        let end = curPage * pageSize;
+                        if (index >= start && index < end) return row;
+                    })
+                    .forEach((person) => {
+                        result += `
+                        <tr>
+                            <td style="text-align: center">${person.id}</td>
+                            <td style="text-align: center">${person.name}</td>
+                            <td style="text-align: center">${person.age}</td>
+                            <td style="text-align: center">${person.team}</td>
+                        </tr>`;
+                    });
+                table.innerHTML = result;
+            }
+            // bài 5
+            function addPerson() {
+                const chooseArr = prompt("Chọn mảng(1 or 2): ");
+                const id = prompt("Nhập ID:");
+                const name = prompt("Nhập tên:");
+                const age = prompt("Nhập tuổi:");
+                const team = prompt("Nhập đội:");
+
+                const newPerson = {
+                    id: parseInt(id),
+                    name: name,
+                    age: parseInt(age),
+                    team: team,
+                };
+                if (chooseArr == 1) {
+                    array_1.push(newPerson);
+                    alert(
+                        `Đã thêm người mới vào array 1: id: ${newPerson.id} - name: ${newPerson.name} - age: ${newPerson.age} - team: ${newPerson.team}`
+                    );
+                } else if (chooseArr == 2) {
+                    array_2.push(newPerson);
+                    alert(
+                        `Đã thêm người mới vào array 2: id: ${newPerson.id} - name: ${newPerson.name} - age: ${newPerson.age} - team: ${newPerson.team}`
+                    );
+                } else {
+                    alert("Mảng này không tồn tại");
+                }
+                renderTable();
+            }
+        </script>
+    </body>
+</html>

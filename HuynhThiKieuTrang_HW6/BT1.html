@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BÀI 1</title>
+</head>
+
+<body>
+    <h1>Kiểm tra số nguyên tố</h1>
+    <input type="text" name="" id="number" placeholder="Nhập số kiểm tra" />
+    <button type="submit" id="kiemTra">Kiểm tra</button>
+    <h3></h3>
+    <script>
+        function kiemTraSoNguyenTo(num) {
+            if (num < 2) {
+                return false;
+            } else if (num % 1 === 0) {
+                for (var i = 2; i < num; i++) {
+                    if (num % i === 0) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        const input_num = document.getElementById("number");
+        const kiemTra = document.getElementById("kiemTra");
+        const kq = document.querySelector("h3");
+        kiemTra.addEventListener("click", function () {      
+            if (kiemTraSoNguyenTo(parseInt(input_num.value)) === true) {
+                kq.innerHTML = `${parseInt(input_num.value)} là số nguyên tố`;
+            } else {
+                kq.innerHTML = `${parseInt(input_num.value)} không là số nguyên tố`;
+            }
+        });
+    </script>
+</body>
+
+</html>

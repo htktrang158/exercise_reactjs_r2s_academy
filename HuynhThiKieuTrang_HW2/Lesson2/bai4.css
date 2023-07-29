@@ -1,0 +1,14 @@
+.content_hang {
+    display: flex;
+}
+button {
+    margin: 10px;
+    padding: 5px;
+    color: #fff;
+    background-color: #01bbd0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 2px;
+}

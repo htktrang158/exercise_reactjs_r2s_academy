@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+
+<body>
+    <h2></h2>
+    <script>
+        var today = new Date();
+        var day = today.getDate();
+        var month = today.getMonth() + 1; //  mặc định 0 - 11
+        var year = today.getFullYear();
+        if (day < 10) {
+            day = "0" + day;
+        }
+        if (month < 10) {
+            month = "0" + month;
+        }
+        document.querySelector("h2").innerHTML = `${day}/${month}/${year}`;
+    </script>
+
+</body>
+
+</html>

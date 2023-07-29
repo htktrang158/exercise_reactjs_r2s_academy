@@ -1,0 +1,34 @@
+Bài 1: Learn about <Input />
+Định nghĩa và cách sử dụng
+Thẻ <input>chỉ định một trường đầu vào nơi người dùng có thể nhập dữ liệu.
+
+Phần tử <input> là phần tử biểu mẫu quan trọng nhất.
+
+Phần tử <input> có thể được hiển thị theo nhiều cách, tùy thuộc vào thuộc tính loại.
+
+Phần tử <input> là phần tử có cấp độ inline
+
+Các loại đầu vào khác nhau như sau:
+
+<input type="button">
+<input type="checkbox">
+<input type="color">
+<input type="date">
+<input type="datetime-local">
+<input type="email">
+<input type="file">
+<input type="hidden">
+<input type="image">
+<input type="month">
+<input type="number">
+<input type="password">
+<input type="radio">
+<input type="range">
+<input type="reset">
+<input type="search">
+<input type="submit">
+<input type="tel">
+<input type="text">(giá trị mặc định)
+<input type="time">
+<input type="url">
+<input type="week">

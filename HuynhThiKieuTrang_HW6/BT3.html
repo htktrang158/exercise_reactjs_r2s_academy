@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BÀI 3</title>
+</head>
+
+<body>
+    <h2>PT bậc 2 : ax^2 + bx + c = 0</h2>
+    <input type="text" name="" id="number_a" placeholder="Nhập số a" />
+    <input type="text" name="" id="number_b" placeholder="Nhập số b" />
+    <input type="text" name="" id="number_c" placeholder="Nhập số c" />
+    <button type="submit" id="kiemTra">Kiểm tra</button>
+    <h3></h3>
+    <script>
+        function tinhPTBac2(a, b, c) {
+            var delta = Math.pow(b, 2) - 4 * a * c;
+            if (delta < 0) {
+                return "Phương trình vô nghiệm";
+            } else if (delta == 0) {
+                return `Phương trình có nghiệm kép x1 = x2 = ${-b / (2 * a)}`;
+            } else {
+                var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                return `Phương trình có 2 nghiệm phân biệt: x1 = ${x1} & x2 = ${x2}`;
+            }
+        }
+        const num_a = document.getElementById("number_a");
+        const num_b = document.getElementById("number_b");
+        const num_c = document.getElementById("number_c");
+        const kiemTra = document.getElementById("kiemTra");
+        const kq = document.querySelector("h3");
+        kiemTra.addEventListener("click", function () {
+            kq.innerHTML = tinhPTBac2(num_a.value, num_b.value, num_c.value);
+        });
+    </script>
+</body>
+
+</html>

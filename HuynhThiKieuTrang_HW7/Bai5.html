@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+
+<body>
+    <h2>Danh sách tỉnh thành</h2>
+    <span class="list"></span>
+    <h2>Tĩnh thành có chữ n</h2>
+    <span class="list_n"></span>
+    <script>
+        const arr = ["Hà Nội",
+            "Hồ Chí Minh",
+            "Hải Phòng",
+            "Đà Nẵng",
+            "Cần Thơ",
+            "Hà Giang",
+            "Cao Bằng",
+            "Lai Châu",
+            "Lào Cai",
+            "Hà Nam",
+            "Đắk Lắk",
+            "Hải Dương",
+            "Hưng Yên",
+            "Kon Tum",
+            "Thái Bình",
+            "Vĩnh Phúc",
+            "Bắc Giang",
+            "Bắc Ninh",
+            "Quảng Ninh",
+            "Gia Lai"];
+        for (var i = 0; i < arr.length; i++) {
+            document.querySelector(".list").innerHTML += `${i + 1}. ${arr[i]} <br>`;
+        }
+        // tạo mảng mới
+        const arr1 = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].includes("n")) {
+                arr1.push(arr[i]);
+            }
+        }
+        for (var i = 0; i < arr1.length; i++) {
+            document.querySelector(".list_n").innerHTML += `${i + 1}. ${arr1[i]} <br>`;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bài 3</title>
+    </head>
+    <body>
+        <h3 class="them_set">SETS: <br /></h3>
+        <h3 class="xoa_set">XÓA PHẦN TỬ SETS: <br /></h3>
+        <h3 class="sua_set">ĐÃ SỬA SETS: <br /></h3>
+        <h3 class="xoa_all_set">ĐÃ XÓA TẤT CẢ SETS: <br /></h3>
+
+        <h3 class="them_map">MAPS: <br /></h3>
+        <h3 class="xoa_map">XÓA PHẦN TỬ MAPS: <br /></h3>
+        <h3 class="sua_map">ĐÃ SỬA MAPS: <br /></h3>
+        <h3 class="xoa_all_map">ĐÃ XÓA TẤT CẢ MAPS: <br /></h3>
+
+        <script>
+            // SETS:
+            // In Các giá trị bên trong SETS
+            let showSet = (set) => {
+                let text = "";
+                set.forEach(function (value) {
+                    text += value + " ";
+                });
+                return text;
+            };
+            // Thay đổi phần tử của SETS
+            const mySet = new Set();
+            let changeSet = (set, newValue, oldValue) => {
+                if (set.has(oldValue) === true) {
+                    set.delete(oldValue);
+                    set.add(newValue);
+                }
+            };
+            mySet.add(8);
+            mySet.add(9);
+            mySet.add("A");
+            document.querySelector(".them_set").innerHTML += showSet(mySet);
+            mySet.delete(8);
+            document.querySelector(".xoa_set").innerHTML += showSet(mySet);
+            changeSet(mySet, "B", 9);
+            document.querySelector(".sua_set").innerHTML += showSet(mySet);
+            mySet.clear();
+            document.querySelector(".xoa_all_set").innerHTML += showSet(mySet);
+
+            // MAPS:
+            let showMap = (map) => {
+                let text = "";
+                for (const x of map.entries()) {
+                    text += x + "   ";
+                }
+                return text;
+            };
+            const myMap = new Map();
+            myMap.set("B", "17");
+            myMap.set("C", "53");
+            document.querySelector(".them_map").innerHTML += showMap(myMap);
+            myMap.delete("B");
+            document.querySelector(".xoa_map").innerHTML += showMap(myMap);
+            myMap.set("C", "16");
+            document.querySelector(".sua_map").innerHTML += showMap(myMap);
+            myMap.clear();
+            document.querySelector(".xoa_all_map").innerHTML += showMap(myMap);
+        </script>
+    </body>
+</html>

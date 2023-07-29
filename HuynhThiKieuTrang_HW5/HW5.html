@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Bài 1
+        function kiemTraSoNguyenDuong(num) {
+            if (typeof (num) !== "number") {
+                console.log(`${num} không phải là một số`);
+            } else if (num <= 0) {
+                console.log(`${num} không phải là một số nguyên dương`);
+            } else if (num % 1 !== 0) {
+                console.log(`${num} không phải là số nguyên`)
+            } else {
+                console.log(`${num} là số nguyên dương`);
+            }
+        }
+        kiemTraSoNguyenDuong('trang');
+        kiemTraSoNguyenDuong(-2);
+        kiemTraSoNguyenDuong(2.33);
+        kiemTraSoNguyenDuong(8);
+
+        // Bài 2
+        function checkGender(gender) {
+            if (gender.toLowerCase() === 'nam') {
+                console.log('Nam')
+            } else if (gender.toLowerCase() === 'nữ') {
+                console.log('Nữ')
+            } else {
+                console.log("Không phải Nam không phải Nữ")
+            }
+        }
+        checkGender('nam');
+        checkGender('nữ');
+        checkGender('NAM');
+        checkGender('khac');
+
+        //Bài 3
+        function chiaHetCho5(num) {
+            if (typeof (num) !== 'number') {
+                console.log(`${num} không phải là số`)
+            } else if (num % 5 !== 0) {
+                console.log(`${num} không chia hết cho 5`)
+            } else {
+                console.log(`${num} chia hết cho 5`)
+            }
+        }
+        chiaHetCho5('trang');
+        chiaHetCho5(16);
+        chiaHetCho5(25);
+        chiaHetCho5(-5);
+
+        // Bài 4
+        var str = ""; // lưu dãy số
+        for (var i = 0; i < 6; i++) {
+            str += i * 5 + " ";
+        }
+        console.log(str);
+
+        // Bài 5
+        var i = 0;
+        var s = "";
+        while (i < 7) {
+            s += i * 3 + " ";
+            i++;
+        }
+        console.log(s);
+
+        // Bài 6
+        function chiaHet3or6(num) {
+            if (typeof num !== "number") {
+                console.log(`${num} không phải là số`);
+            } else {
+                if (num % 3 === 0 || num % 6 === 0)
+                    console.log(`${num} chia hết cho 3 hoặc 6`);
+                else {
+                    console.log(`${num} không chia hết cho 3 hoặc 6`);
+                }
+            }
+        }
+        chiaHet3or6('trang');
+        chiaHet3or6(18);
+        chiaHet3or6(7);
+
+        // Bài 7
+        function tinhTong(num) {
+            var sum = 0;
+            for (var i = 1; i <= num; i++) {
+                sum = sum + i;
+            }
+            return sum;
+        }
+        console.log(tinhTong(8));
+        console.log(tinhTong(4));
+    </script>
+</body>
+
+</html>

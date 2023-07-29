@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BÀI 2</title>
+</head>
+
+<body>
+    <h2>PT bậc 1 : ax + b = 0</h2>
+    <input type="text" name="" id="number_a" placeholder="Nhập số a" />
+    <input type="text" name="" id="number_b" placeholder="Nhập số b" />
+    <button type="submit" id="kiemTra">Kiểm tra</button>
+    <h3></h3>
+    <script>
+        function tinhPTBac1(a, b) {
+            if (a == 0) {
+                if (b == 0) {
+                    return "Phương trình vô số nghiệm";
+                } else {
+                    return "Phương trình vô nghiệm";
+                }
+            } else {
+                return `Phương trình có nghiệm x = ${-b / a}`;
+            }
+        }
+        const num_a = document.getElementById("number_a");
+        const num_b = document.getElementById("number_b");
+        const kiemTra = document.getElementById("kiemTra");
+        const kq = document.querySelector("h3");
+        kiemTra.addEventListener("click", function () {
+            kq.innerHTML = tinhPTBac1(num_a.value, num_b.value);
+        });
+    </script>
+</body>
+
+</html>

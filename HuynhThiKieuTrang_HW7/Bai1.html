@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+
+<body>
+    <h2>Xếp theo tên:</h2>
+    <span class="name"></span>
+    <h2>Xếp theo tuổi:</h2>
+    <span class="age"></span>
+    <h2>Danh sách:</h2>
+    <span class="list"></span>
+    <h2>Tổng số: </h2>
+    <span class="sum"></span>
+    <h2>Vị trí của bạn Hiếu: </h2>
+    <span class="hieu"></span>
+    <script>
+        const arr = [
+            {
+                name: "Luân",
+                age: 20,
+                phone: "0854042308",
+            },
+            {
+                name: "Trang",
+                age: 18,
+                phone: "0854042308",
+            },
+            {
+                name: "Hiếu",
+                age: 19,
+                phone: "0854042308",
+            },
+            {
+                name: "Trinh",
+                age: 21,
+                phone: "0854042308",
+            },
+            {
+                name: "Dung",
+                age: 22,
+                phone: "0854042308",
+            },
+        ];
+        // 1. sắp xếp theo tên
+        // 
+        arr.sort((a, b) => {
+            if (a.name < b.name) return -1; // a.name < b.name thì a đứng trước b
+            else if (a.name > b.name) return 1; // a.name > b.name thì a đứng sau b
+            else return 0; // a.name === b.name thì a và b đứng yên
+        });
+        for (let i = 0; i < arr.length; i++) {
+            document.querySelector(".name").innerHTML += `${arr[i].name}, ${arr[i].age}, ${arr[i].phone}<br>`;
+        }
+        //2. sắp xếp theo tuổi
+        arr.sort((a, b) => a.age - b.age);
+        for (let i = 0; i < arr.length; i++) {
+            document.querySelector(".age").innerHTML += `${arr[i].name}, ${arr[i].age}, ${arr[i].phone}<br>`;
+        }
+        //3.hiển thị tất cả các phần tử trong mảng theo dạng: name, tuổi...
+        for (var i = 0; i < arr.length; i++) {
+            document.querySelector(".list").innerHTML += `${arr[i].name}, ${arr[i].age}, ${arr[i].phone}<br>`;
+        }
+        //4. tính tổng tất cả tuổi trong mảng
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i].age;
+        }
+        document.querySelector(".sum").innerHTML = `Tổng tất cả tuổi trong mãng: ${sum}`;
+        //5. Tìm thằng tên Hiếu
+        let viTri;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].name === "Hiếu") {
+                viTri = i;
+                break;
+            }
+        }
+        document.querySelector(".hieu").innerHTML = `Vị trí của bạn Hiếu: ${viTri}`;
+    </script>
+</body>
+
+</html>

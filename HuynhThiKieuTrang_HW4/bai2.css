@@ -1,0 +1,49 @@
+.container {
+    background: #f6f6f6;
+    position: relative;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 16px;
+}
+
+.container hr {
+    position: absolute;
+    border-bottom: 4px solid #5e9afd;
+    width: 4%;
+    left: 48%;
+    top: 60px;
+}
+
+.content {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+img {
+    width: 100%;
+    height: 64px;
+}
+
+.content__text {
+    margin-left: 10px;
+    width: 350px;
+}
+
+.row {
+    margin-top: 60px;
+}
+
+.container h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+span {
+    color: #838383;
+    font-weight: bold;
+}
+
+p {
+    color: #adadad;
+    font-style: italic;
+}

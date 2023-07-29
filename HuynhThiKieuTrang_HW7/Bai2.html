@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+    <style>
+        button {
+            cursor: pointer;
+            padding: 12px;
+            margin: 12px;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>DANH SÁCH CÁC THÀNH VIÊN</h2>
+    <span class="list"></span>
+    <button type="choice" id="cam" style="background-color: orange" onclick="checkTeam('orange')">Cam</button>
+    <button type="choice" id="vang" style="background-color: yellow" onclick="checkTeam('yellow')">Vàng</button>
+    <button type="choice" id="xanh_la" style="background-color: green" onclick="checkTeam('green')">Xanh lá</button>
+    <button type="choice" id="xanh_duong" style="background-color: blue" onclick="checkTeam('blue')">Xanh dương</button>
+    <br>
+    <input type="text" id="name" placeholder="Nhập tên thành viên">
+    <button id="tim">Tìm kiếm</button>
+    <span class="nameInput"></span>
+    <br>
+    <input type="text" id="age" placeholder="Nhập tuổi thành viên">
+    <button id="remove">Remove</button>
+    <span class="ageInput"></span>
+    <br>
+    <h2>Thêm thành viên:</h2>
+    <input type="text" id="newNameInput" placeholder="Nhập tên">
+    <input type="number" id="newAgeInput" placeholder="Nhập tuổi">
+    <input type="text" id="newTeamInput" placeholder="Nhập team">
+    <input type="text" id="newIdInput" placeholder="Nhập id">
+    <button onclick="addMember()">Thêm</button>
+    <span class="checkId"></span>
+    <script>
+        const members = [
+            { name: "A", age: 18, team: "yellow", id: 1, },
+            { name: "B", age: 19, team: "yellow", id: 2, },
+            { name: "C", age: 20, team: "yellow", id: 3, },
+            { name: "D", age: 21, team: "green", id: 4, },
+            { name: "E", age: 22, team: "green", id: 5, },
+            { name: "F", age: 23, team: "green", id: 6, },
+            { name: "G", age: 24, team: "orange", id: 7, },
+            { name: "H", age: 25, team: "orange", id: 8, },
+            { name: "I", age: 26, team: "orange", id: 9, },
+            { name: "J", age: 27, team: "blue", id: 10, },
+            { name: "K", age: 28, team: "blue", id: 11, },
+            { name: "L", age: 29, team: "blue", id: 12, },
+        ]
+        viewList();
+        function viewList() {
+            document.querySelector(".list").innerHTML = "";
+            for (let i = 0; i < members.length; i++) {
+                document.querySelector(".list").innerHTML += `Name: ${members[i].name}, Age: ${members[i].age}, Team: ${members[i].team}, Id: ${members[i].id} <br> <br>`
+            }
+        }
+        //.................................1. Tạo 4 Button................................................................
+        function checkTeam(color) {
+            document.querySelector(".list").innerHTML = "";
+            for (let i = 0; i < members.length; i++) {
+                if (members[i].team === color) {
+                    document.querySelector(".list").innerHTML += `Name: ${members[i].name}, Age: ${members[i].age}, Team: ${members[i].team}, Id: ${members[i].id} <br> <br>`;
+                }
+            }
+        }
+        //.................................2. Nhập tên thành viên................................................................
+        function findName(name) {
+            let count = 0;
+            for (let i = 0; i < members.length; i++) {
+                if (members[i].name == name) {
+                    document.querySelector(".nameInput").innerHTML = `Name: ${members[i].name}, Age: ${members[i].age}, Team: ${members[i].team}, Id: ${members[i].id} <br> <br>`;
+                    count++;
+                    break;
+                }
+            }
+            if (count == 0) {
+                document.querySelector(".nameInput").innerHTML = "không tìm thấy";
+            }
+        }
+        document.querySelector("#tim").addEventListener("click", function () {
+            findName(document.querySelector("#name").value);
+        })
+        //.................................3. Nhập tên thành viên................................................................
+        function removeAge(age) {
+            const updatedMembers = members.filter(function (member) {
+                return member.age !== age;
+            });
+            if (updatedMembers.length === members.length) {
+                return 0;
+            }
+            members.length = 0;
+            Array.prototype.push.apply(members, updatedMembers);
+        }
+        document.querySelector("#remove").addEventListener("click", function () {
+            if (removeAge(parseInt(document.querySelector("#age").value)) === 0) {
+                document.querySelector(".ageInput").innerHTML = "Không tìm thấy tuổi";
+            }
+            viewList();
+        })
+        //.................................4. Nhập tên thành viên................................................................
+        function addMember() {
+            document.querySelector(".checkId").innerHTML = ""
+            const name_value = document.getElementById('newNameInput').value;
+            const age_value = document.getElementById('newAgeInput').value;
+            const team_value = document.getElementById('newTeamInput').value;
+            const id_value = document.getElementById('newIdInput').value;
+            const mem = {
+                name: name_value,
+                age: parseInt(age_value),
+                team: team_value,
+                id: parseInt(id_value),
+            }
+            const checkId = members.find((member) => member.id === parseInt(id_value));
+            if (checkId) {
+                document.querySelector(".checkId").innerHTML = `Id ${id_value} đã tồn tại`;
+                return;
+            }
+            members.push(mem);
+            viewList();
+        }
+    </script>
+
+</body>
+
+</html>
